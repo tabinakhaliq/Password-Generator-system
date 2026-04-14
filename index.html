@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="card main-card">
+            <h1>Password Generator</h1>
+            <p class="subtext">Generate secure passwords with smart options</p>
+
+            <label for="length">Password Length</label>
+            <input type="number" id="length" min="8" max="32" placeholder="Enter length (8-32)">
+
+            <div class="options">
+                <label><input type="checkbox" id="upper"> Uppercase Letters</label>
+                <label><input type="checkbox" id="lower"> Lowercase Letters</label>
+                <label><input type="checkbox" id="number"> Numbers</label>
+                <label><input type="checkbox" id="symbol"> Symbols</label>
+            </div>
+
+            <button onclick="generatePassword()">Generate Password</button>
+
+            <label for="result">Generated Password</label>
+            <div class="result-box">
+                <input type="password" id="result" readonly placeholder="Your password will appear here">
+                <button class="small-btn" onclick="togglePassword()">Show</button>
+            </div>
+
+            <div class="strength-box">
+                <span>Password Strength:</span>
+                <span id="strengthText">-</span>
+            </div>
+
+            <div class="action-buttons">
+                <button onclick="copyPassword()">Copy</button>
+                <button onclick="savePassword()">Save</button>
+            </div>
+        </div>
+
+        <div class="card side-card">
+            <h2>Saved History</h2>
+            <ul id="history"></ul>
+            <button class="danger-btn" onclick="clearHistory()">Clear All History</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
