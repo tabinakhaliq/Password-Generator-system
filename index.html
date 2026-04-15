@@ -10,23 +10,24 @@
     <div class="dashboard">
         <div class="card main-card">
             <h1>Password Generator</h1>
+            <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
             <p class="subtext">Generate secure passwords with smart options</p>
 
             <label for="length">Password Length</label>
             <input type="number" id="length" min="8" max="32" placeholder="Enter length (8-32)">
 
             <div class="options">
-                <label><input type="checkbox" id="upper"> Uppercase Letters</label>
-                <label><input type="checkbox" id="lower"> Lowercase Letters</label>
-                <label><input type="checkbox" id="number"> Numbers</label>
-                <label><input type="checkbox" id="symbol"> Symbols</label>
+                <label><input type="checkbox" id="uppercase"> Uppercase Letters</label>
+                <label><input type="checkbox" id="lowercase"> Lowercase Letters</label>
+                <label><input type="checkbox" id="numbers"> Numbers</label>
+                <label><input type="checkbox" id="symbols"> Symbols</label>
             </div>
 
             <button onclick="generatePassword()">Generate Password</button>
 
-            <label for="result">Generated Password</label>
+            <label for="generatedPassword">Generated Password</label>
             <div class="result-box">
-                <input type="password" id="result" readonly placeholder="Your password will appear here">
+                <input type="password" id="generatedPassword" readonly placeholder="Your password will appear here">
                 <button class="small-btn" onclick="togglePassword()">Show</button>
             </div>
 
@@ -37,14 +38,19 @@
 
             <div class="action-buttons">
                 <button onclick="copyPassword()">Copy</button>
-                <button onclick="savePassword()">Save</button>
+                <button class="save-btn" onclick="savePassword()">Save</button>
             </div>
         </div>
 
         <div class="card side-card">
             <h2>Saved History</h2>
-            <ul id="history"></ul>
+
+            <input type="text" id="search" placeholder="Search passwords..." onkeyup="searchHistory()">
+
+            <ul id="history" class="history-list"></ul>
+
             <button class="danger-btn" onclick="clearHistory()">Clear All History</button>
+            <button onclick="exportHistory()">Export History</button>
         </div>
     </div>
 

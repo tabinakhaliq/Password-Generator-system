@@ -1,3 +1,45 @@
+:root {
+    --page-bg: linear-gradient(135deg, #eef2ff, #f8fbff);
+    --card-bg: linear-gradient(180deg, #ffffff, #f8fbff);
+    --text-color: #222;
+
+    --theme-box-bg: #dbeafe;
+    --theme-box-border: #93c5fd;
+    --theme-box-text: #1e3a8a;
+
+    --theme-result-bg: #e0f2fe;
+    --theme-result-border: #7dd3fc;
+
+    --theme-btn-main: linear-gradient(90deg, #2563eb, #1d4ed8);
+    --theme-btn-copy: linear-gradient(90deg, #0ea5e9, #0284c7);
+    --theme-btn-save: linear-gradient(90deg, #2563eb, #1d4ed8);
+    --theme-btn-danger: linear-gradient(90deg, #3b82f6, #2563eb);
+
+    --strength-bg: #dbeafe;
+    --strength-border: #93c5fd;
+}
+
+.dark {
+    --page-bg: linear-gradient(135deg, #1f1027, #2d1639);
+    --card-bg: linear-gradient(180deg, #2a1635, #341a43);
+    --text-color: #ffffff;
+
+    --theme-box-bg: #f9c5d5;
+    --theme-box-border: #f472b6;
+    --theme-box-text: #831843;
+
+    --theme-result-bg: #fbcfe8;
+    --theme-result-border: #f472b6;
+
+    --theme-btn-main: linear-gradient(90deg, #ec4899, #db2777);
+    --theme-btn-copy: linear-gradient(90deg, #f472b6, #ec4899);
+    --theme-btn-save: linear-gradient(90deg, #ec4899, #db2777);
+    --theme-btn-danger: linear-gradient(90deg, #f472b6, #db2777);
+
+    --strength-bg: #fbcfe8;
+    --strength-border: #f472b6;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -5,8 +47,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #eef2f7, #dfe7f1);
-    color: #222;
+    background: var(--page-bg);
+    color: var(--text-color);
 }
 
 .dashboard {
@@ -19,26 +61,30 @@ body {
 }
 
 .card {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 16px;
     padding: 24px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
 }
 
 h1, h2 {
     margin-top: 0;
     margin-bottom: 10px;
+    color: var(--text-color);
 }
 
 .subtext {
-    color: #666;
+    color: var(--text-color);
     margin-bottom: 20px;
+    opacity: 0.85;
 }
 
 label {
     display: block;
     margin: 14px 0 8px;
     font-weight: bold;
+    color: var(--text-color);
 }
 
 input[type="number"],
@@ -46,24 +92,27 @@ input[type="password"],
 input[type="text"] {
     width: 100%;
     padding: 12px;
-    border: 1px solid #cfcfcf;
+    border: 1px solid #cbd5e1;
     border-radius: 10px;
     font-size: 15px;
+    background: #f8fafc;
 }
 
 .options {
     margin: 18px 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 12px;
 }
 
 .options label {
     font-weight: normal;
-    background: #f7f9fc;
-    padding: 10px;
-    border-radius: 10px;
+    background: var(--theme-box-bg);
+    padding: 12px;
+    border-radius: 12px;
     margin: 0;
+    border: 1px solid var(--theme-box-border);
+    color: var(--theme-box-text);
 }
 
 button {
@@ -71,7 +120,7 @@ button {
     padding: 12px;
     border: none;
     border-radius: 10px;
-    background: #111827;
+    background: var(--theme-btn-main);
     color: white;
     font-size: 15px;
     cursor: pointer;
@@ -87,6 +136,10 @@ button:hover {
     display: flex;
     gap: 10px;
     align-items: center;
+    background: var(--theme-result-bg);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--theme-result-border);
 }
 
 .result-box input {
@@ -97,7 +150,8 @@ button:hover {
     width: auto;
     padding: 12px 16px;
     margin-top: 0;
-    background: #374151;
+    background: var(--theme-btn-main);
+    color: white;
 }
 
 .action-buttons {
@@ -106,14 +160,23 @@ button:hover {
     gap: 12px;
 }
 
+.action-buttons button:first-child {
+    background: var(--theme-btn-copy);
+}
+
+.action-buttons button:last-child {
+    background: var(--theme-btn-save);
+}
+
 .strength-box {
     margin-top: 14px;
     padding: 12px;
-    background: #f7f9fc;
+    background: var(--strength-bg);
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     font-weight: bold;
+    border: 1px solid var(--strength-border);
 }
 
 #history {
@@ -125,11 +188,13 @@ button:hover {
 }
 
 #history li {
-    background: #f7f9fc;
+    background: var(--theme-box-bg);
     padding: 12px;
     border-radius: 10px;
     margin-bottom: 10px;
     word-break: break-all;
+    border: 1px solid var(--theme-box-border);
+    color: var(--theme-box-text);
 }
 
 .history-top {
@@ -142,18 +207,23 @@ button:hover {
 .history-password {
     font-size: 14px;
     margin-top: 8px;
-    color: #333;
 }
 
 .delete-btn {
-    background: #dc2626;
+    background: var(--theme-btn-danger);
     width: auto;
     padding: 8px 12px;
     margin-top: 0;
+    color: white;
 }
 
 .danger-btn {
-    background: #b91c1c;
+    background: var(--theme-btn-danger);
+    color: white;
+}
+
+#search {
+    margin: 10px 0 14px;
 }
 
 @media (max-width: 800px) {
